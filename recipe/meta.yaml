@@ -10,10 +10,6 @@ source:
   url: https://github.com/pyg-team/pyg-lib/archive/refs/tags/{{ version }}.tar.gz
   sha256: 3c486a72a421b4769cd1ca114522eedf25d4115ca529091db06c10264a406ac4
 
-  # Will be merged upstream: https://github.com/pyg-team/pyg-lib/issues/163
-  patches:
-    - cmake_compat.patch
-
 build:
   number: 0
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
