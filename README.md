@@ -1,11 +1,11 @@
-About pyg-lib
-=============
+About pyg-lib-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyg-lib-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/pyg-team/pyg-lib
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyg-lib-feedstock/blob/main/LICENSE.txt)
 
 Summary: Low-Level Graph Neural Network Operators for PyG
 
