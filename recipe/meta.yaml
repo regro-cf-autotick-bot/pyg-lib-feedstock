@@ -14,8 +14,8 @@ build:
   number: 1
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
-  # Only build for CUDA >11.2
-  skip: true  # [win or cuda_compiler_version in ("10.2", "11.0", "11.1", "11.2")]
+  # Only build for CUDA >=11.2
+  skip: true  # [win or cuda_compiler_version in ("10.2", "11.0", "11.1")]
 
 requirements:
   build:
@@ -32,7 +32,9 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - parallel-hashmap
-    - cutlass                              # [cuda_compiler_version not in (undefined, 'None')]
+    # NOTE(hadim): using the latest c-f package for cutlass raises CUDA compilation errors.
+    # pyg-lib is built with cutlass@858c735 which more or less corresponds to the 2.9.1 release.
+    - cutlass ==2.9.1                        # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
@@ -41,8 +43,8 @@ requirements:
   run:
     - python
     - parallel-hashmap
-    - triton                               # [linux and cuda_compiler_version not in (undefined, 'None')]
-    - cutlass                              # [cuda_compiler_version not in (undefined, 'None')]
+    - triton                                 # [linux and cuda_compiler_version not in (undefined, 'None')]
+    - cutlass ==2.9.1                        # [cuda_compiler_version not in (undefined, 'None')]
   run_constrained:
     # 2022/02/05 hmaarrfk
     # While conda packaging seems to allow us to specify
