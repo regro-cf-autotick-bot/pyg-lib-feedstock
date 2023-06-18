@@ -43,6 +43,8 @@ requirements:
   host:
     - python
     - pip
+    - pytorch
+    - pytorch =*={{ torch_proc_type }}*
   run:
     - python
     - parallel-hashmap
