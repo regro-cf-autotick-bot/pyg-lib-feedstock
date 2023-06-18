@@ -10,8 +10,11 @@ source:
   url: https://github.com/pyg-team/pyg-lib/archive/refs/tags/{{ version }}.tar.gz
   sha256: 3c486a72a421b4769cd1ca114522eedf25d4115ca529091db06c10264a406ac4
 
+  patches:
+    - fix-cmake.patch
+
 build:
-  number: 2
+  number: 10
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
   # Only build for CUDA >=11.2
@@ -30,7 +33,8 @@ requirements:
     - pytorch                                # [build_platform != target_platform]
     - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
     - cmake
-    - ninja
+    - make  # [not win]
+    - ninja  # [win]
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - parallel-hashmap

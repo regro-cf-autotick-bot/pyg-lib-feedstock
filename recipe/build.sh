@@ -30,5 +30,6 @@ export Torch_DIR=$(python -c 'import torch; print(torch.utils.cmake_prefix_path)
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
+export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_FIND_FRAMEWORK=NEVER -DCMAKE_FIND_APPBUNDLE=NEVER -DPython_EXECUTABLE=${PYTHON}"
 
 python -m pip install . -vvv

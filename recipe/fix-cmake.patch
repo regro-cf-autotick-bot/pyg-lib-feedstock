@@ -1,0 +1,14 @@
+diff --git a/setup.py b/setup.py
+index b9158f7..1a85091 100644
+--- a/setup.py
++++ b/setup.py
+@@ -77,6 +77,9 @@ class CMakeBuild(build_ext):
+             warnings.warn("Building times of 'pyg-lib' can be heavily improved"
+                           " by installing 'ninja': `pip install ninja`")
+ 
++        if os.getenv("PYG_CMAKE_ARGS") is not None:
++            cmake_args += os.getenv("PYG_CMAKE_ARGS").split(" ")
++
+         build_args = []
+ 
+         subprocess.check_call(['cmake', ext.sourcedir] + cmake_args,
