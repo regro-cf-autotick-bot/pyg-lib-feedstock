@@ -30,7 +30,7 @@ export Torch_DIR=$(python -c 'import torch; print(torch.utils.cmake_prefix_path)
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
-export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_FIND_FRAMEWORK=NEVER -DCMAKE_FIND_APPBUNDLE=NEVER -DPython3_EXECUTABLE=${PYTHON}"
+export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON}"
 
 if [ "$target_platform" = "osx-arm64" ]; then
   export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64"
