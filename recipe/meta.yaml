@@ -33,7 +33,7 @@ requirements:
     - pytorch                                # [build_platform != target_platform]
     - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
     - cmake
-    - ninja
+    - ninja  # NOTE(hadim): here ninja is used for linux and osx
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - parallel-hashmap
