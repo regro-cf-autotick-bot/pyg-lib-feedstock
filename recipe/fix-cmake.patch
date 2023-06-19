@@ -1,17 +1,5 @@
-diff --git a/.github/workflows/cuda/Linux-env.sh b/.github/workflows/cuda/Linux-env.sh
-old mode 100755
-new mode 100644
-diff --git a/.github/workflows/cuda/Linux.sh b/.github/workflows/cuda/Linux.sh
-old mode 100755
-new mode 100644
-diff --git a/.github/workflows/cuda/Windows-env.sh b/.github/workflows/cuda/Windows-env.sh
-old mode 100755
-new mode 100644
-diff --git a/.github/workflows/cuda/macOS-env.sh b/.github/workflows/cuda/macOS-env.sh
-old mode 100755
-new mode 100644
 diff --git a/setup.py b/setup.py
-index b9158f7..fa5739f 100644
+index b9158f7..5a2f4aa 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -61,7 +61,7 @@ class CMakeBuild(build_ext):
@@ -21,19 +9,15 @@ index b9158f7..fa5739f 100644
 -            f'-DCMAKE_PREFIX_PATH={torch.utils.cmake_prefix_path}',
 +            # f'-DCMAKE_PREFIX_PATH={torch.utils.cmake_prefix_path}',
          ]
- 
+
          if CMakeBuild.check_env_flag('USE_MKL_BLAS'):
-@@ -77,6 +77,13 @@ class CMakeBuild(build_ext):
+@@ -77,6 +77,9 @@ class CMakeBuild(build_ext):
              warnings.warn("Building times of 'pyg-lib' can be heavily improved"
                            " by installing 'ninja': `pip install ninja`")
- 
+
 +        if os.getenv("PYG_CMAKE_ARGS") is not None:
 +            cmake_args += os.getenv("PYG_CMAKE_ARGS").split(" ")
 +
-+        print("========================================")
-+        print("CMake args: " + str(cmake_args))
-+        print("========================================")
-+
          build_args = []
- 
+
          subprocess.check_call(['cmake', ext.sourcedir] + cmake_args,
