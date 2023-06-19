@@ -1,6 +1,16 @@
 #!/bin/bash
 set -ex
 
+export PATH="$PWD:$PATH"
+
+export CC=$(basename $CC)
+export CXX=$(basename $CXX)
+
+if [[ "$target_platform" == "osx-64" ]]; then
+  export CXXFLAGS="$CXXFLAGS -DTARGET_OS_OSX=1"
+  export CFLAGS="$CFLAGS -DTARGET_OS_OSX=1"
+fi
+
 if [[ ${cuda_compiler_version} != "None" ]]; then
   export FORCE_CUDA=1
 
@@ -26,7 +36,7 @@ fi
 
 # Dynamic libraries need to be lazily loaded so that torch
 # can be imported on system without a GPU
-LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
+export LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
 
 # export USE_MKL_BLAS=1  # only used for >0.1.0
 export FORCE_NINJA=1
@@ -34,4 +44,5 @@ export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 #  -DTorch_Dir=${SP_DIR}/torch
+
 python -m pip install . -vvv
