@@ -31,10 +31,6 @@ export Torch_Dir="${SP_DIR}/torch"
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
-export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON}"
-
-if [ "$target_platform" = "osx-arm64" ]; then
-  export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} -DCMAKE_OSX_ARCHITECTURES=arm64"
-fi
+export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
 
 python -m pip install . -vvv

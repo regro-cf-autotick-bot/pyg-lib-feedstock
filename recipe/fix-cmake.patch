@@ -1,7 +1,28 @@
+diff --git a/.github/workflows/cuda/Linux-env.sh b/.github/workflows/cuda/Linux-env.sh
+old mode 100755
+new mode 100644
+diff --git a/.github/workflows/cuda/Linux.sh b/.github/workflows/cuda/Linux.sh
+old mode 100755
+new mode 100644
+diff --git a/.github/workflows/cuda/Windows-env.sh b/.github/workflows/cuda/Windows-env.sh
+old mode 100755
+new mode 100644
+diff --git a/.github/workflows/cuda/macOS-env.sh b/.github/workflows/cuda/macOS-env.sh
+old mode 100755
+new mode 100644
 diff --git a/setup.py b/setup.py
-index b9158f7..1a85091 100644
+index b9158f7..5a2f4aa 100644
 --- a/setup.py
 +++ b/setup.py
+@@ -61,7 +61,7 @@ class CMakeBuild(build_ext):
+             f'-DWITH_CUDA={"ON" if WITH_CUDA else "OFF"}',
+             f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}',
+             f'-DCMAKE_BUILD_TYPE={self.build_type}',
+-            f'-DCMAKE_PREFIX_PATH={torch.utils.cmake_prefix_path}',
++            # f'-DCMAKE_PREFIX_PATH={torch.utils.cmake_prefix_path}',
+         ]
+ 
+         if CMakeBuild.check_env_flag('USE_MKL_BLAS'):
 @@ -77,6 +77,9 @@ class CMakeBuild(build_ext):
              warnings.warn("Building times of 'pyg-lib' can be heavily improved"
                            " by installing 'ninja': `pip install ninja`")
