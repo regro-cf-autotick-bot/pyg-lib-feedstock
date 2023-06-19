@@ -25,7 +25,8 @@ else
 fi
 
 # export USE_MKL_BLAS=1  # only used for >0.1.0
-export Torch_DIR=$(python -c 'import torch; print(torch.utils.cmake_prefix_path)')
+#export Torch_DIR=$(python -c 'import torch; print(torch.utils.cmake_prefix_path)')
+export Torch_Dir="${SP_DIR}/torch"
 
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
