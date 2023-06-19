@@ -1,16 +1,6 @@
 #!/bin/bash
 set -ex
 
-export PATH="$PWD:$PATH"
-
-export CC=$(basename $CC)
-export CXX=$(basename $CXX)
-
-if [[ "$target_platform" == "osx-64" ]]; then
-  export CXXFLAGS="$CXXFLAGS -DTARGET_OS_OSX=1"
-  export CFLAGS="$CFLAGS -DTARGET_OS_OSX=1"
-fi
-
 if [[ ${cuda_compiler_version} != "None" ]]; then
   export FORCE_CUDA=1
 
@@ -34,6 +24,17 @@ else
   export FORCE_CUDA=0
 fi
 
+# get torch libraries for osx-arm64
+# from https://github.com/conda-forge/openmm-torch-feedstock/blob/f7b09cd93f69d7213acd88dca1b0b1770b0ac2bc/recipe/build.sh#L7
+LIBTORCH_DIR=${BUILD_PREFIX}
+if [[ "$OSTYPE" == "darwin"* && $OSX_ARCH == "arm64" ]]; then
+  LIBTORCH_DIR=${RECIPE_DIR}/libtorch
+  conda list -p ${BUILD_PREFIX} >packages.txt
+  cat packages.txt
+  PYTORCH_PACKAGE_VERSION=$(grep pytorch packages.txt | awk -F ' ' '{print $2}')
+  CONDA_SUBDIR=osx-arm64 conda create -y -p ${LIBTORCH_DIR} --no-deps pytorch=${PYTORCH_PACKAGE_VERSION} python=${PY_VER}
+fi
+
 # Dynamic libraries need to be lazily loaded so that torch
 # can be imported on system without a GPU
 export LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
@@ -42,6 +43,11 @@ export LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
-export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DCMAKE_INSTALL_PREFIX=${PREFIX} -DTorch_Dir=${SP_DIR}/torch"
+
+export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} ${CMAKE_ARGS}"
+export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON}"
+export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
+export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} -DTorch_DIR=${LIBTORCH_DIR}/lib/python${PY_VER}/site-packages/torch/share/cmake/Torch"
+export PYG_CMAKE_ARGS="${PYG_CMAKE_ARGS} -DPYTORCH_DIR=${SP_DIR}/torch"
 
 ${PYTHON} -m pip install . -vvv
