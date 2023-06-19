@@ -42,7 +42,6 @@ export LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
 export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
-export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DCMAKE_INSTALL_PREFIX=${PREFIX}"
-#  -DTorch_Dir=${SP_DIR}/torch
+export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DCMAKE_INSTALL_PREFIX=${PREFIX} -DTorch_Dir=${SP_DIR}/torch"
 
 ${PYTHON} -m pip install . -vvv
