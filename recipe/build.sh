@@ -54,3 +54,8 @@ else
 fi
 
 ${PYTHON} -m pip install . -vvv
+
+if [[ "$OSTYPE" == "darwin"* && $OSX_ARCH == "arm64" ]]; then
+    # clean up, otherwise, environment is stored in package
+    rm -fr ${LIBTORCH_DIR}
+fi
