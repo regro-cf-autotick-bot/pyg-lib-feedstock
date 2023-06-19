@@ -24,6 +24,10 @@ else
   export FORCE_CUDA=0
 fi
 
+# Dynamic libraries need to be lazily loaded so that torch
+# can be imported on system without a GPU
+LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
+
 # export USE_MKL_BLAS=1  # only used for >0.1.0
 export FORCE_NINJA=1
 export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
