@@ -7,3 +7,9 @@ github:
   branch_name: main
   tooling_branch_name: main
 test: native_and_emulated
+azure:
+  # flag for forcing the building all supported providers
+  force: false
+  # toggle for storing the conda build_artifacts directory (including the
+  # built packages) as an Azure pipeline artifact that can be downloaded
+  store_build_artifacts: true
