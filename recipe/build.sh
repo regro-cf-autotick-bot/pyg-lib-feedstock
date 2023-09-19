@@ -24,6 +24,10 @@ else
   export FORCE_CUDA=0
 fi
 
+if [[ "${target_platform}" == osx-* ]]; then
+  export CXXFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY ${CXXFLAGS}"
+fi
+
 # export USE_MKL_BLAS=1  # only used for >0.1.0
 export Torch_DIR=$(python -c 'import torch; print(torch.utils.cmake_prefix_path)')
 
