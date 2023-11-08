@@ -32,9 +32,6 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - parallel-hashmap
-    # NOTE(hadim): using the latest c-f package for cutlass raises CUDA compilation errors.
-    # pyg-lib is built with cutlass@858c735 which more or less corresponds to the 2.9.1 release.
-    - cutlass ==2.9.1                        # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
