@@ -41,7 +41,6 @@ requirements:
     - python
     - parallel-hashmap
     - triton                                 # [linux and cuda_compiler_version not in (undefined, 'None')]
-    - cutlass ==2.9.1                        # [cuda_compiler_version not in (undefined, 'None')]
   run_constrained:
     # 2022/02/05 hmaarrfk
     # While conda packaging seems to allow us to specify
