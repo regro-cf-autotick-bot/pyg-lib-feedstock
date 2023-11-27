@@ -33,7 +33,7 @@ if [[ ${cuda_compiler_version} != "None" ]]; then
       # $CUDA_HOME not set in CUDA 12.0. Using $PREFIX
       export CUDA_TOOLKIT_ROOT_DIR="${PREFIX}"
   else
-      echo "unsupported cuda version. edit build_pytorch.sh"
+      echo "unsupported cuda version. edit build.sh"
       exit 1
   fi
 
