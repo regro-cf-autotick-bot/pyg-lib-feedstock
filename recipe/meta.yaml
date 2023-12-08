@@ -2,6 +2,12 @@
 {% set version = "0.3.1" %}
 {% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
+{% if cuda_compiler_version in (None, "None", True, False) %}
+{% set cuda_major = 0 %}
+{% else %}
+{% set cuda_major = environ.get("cuda_compiler_version", "11.8").split(".")[0] | int %}
+{% endif %}
+
 package:
   name: {{ name }}
   version: {{ version }}
@@ -14,7 +20,7 @@ source:
     - fix-cmake.patch
 
 build:
-  number: 2
+  number: 3
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
   # Only build for CUDA >=11.2
@@ -39,6 +45,20 @@ requirements:
     - pip
     - pytorch
     - pytorch =*={{ torch_proc_type }}*
+    {% if cuda_major >= 12 %}
+    - cuda-cudart-dev
+    # No cuda-driver-dev in windows
+    - cuda-driver-dev  # [linux]
+    - libcufft-dev
+    - libcurand-dev
+    - libcublas-dev
+    - cuda-nvrtc-dev
+    - cuda-nvtx-dev
+    - cuda-profiler-api
+    - cuda-nvrtc-dev
+    - libcusparse-dev
+    - libcusolver-dev
+    {% endif %}
   run:
     - python
     - parallel-hashmap
