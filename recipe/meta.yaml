@@ -1,5 +1,5 @@
 {% set name = "pyg-lib" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 {% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 {% if cuda_compiler_version in (None, "None", True, False) %}
@@ -13,14 +13,14 @@ package:
   version: {{ version }}
 
 source:
-  git_url:  https://github.com/pyg-team/pyg-lib/
-  git_rev: {{ version }}
+  url: https://github.com/pyg-team/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 6a515815f69f925a0ba15e743ac071629e1fd1ae9c46576db8b7f91ab40a8eac
 
   patches:
     - fix-cmake.patch
 
 build:
-  number: 4
+  number: 0
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
   # Only build for CUDA >=11.2
