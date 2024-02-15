@@ -13,9 +13,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/pyg-team/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6a515815f69f925a0ba15e743ac071629e1fd1ae9c46576db8b7f91ab40a8eac
-
+-  git_url:  https://github.com/pyg-team/pyg-lib/
+-  git_rev: {{ version }}
   patches:
     - fix-cmake.patch
 
