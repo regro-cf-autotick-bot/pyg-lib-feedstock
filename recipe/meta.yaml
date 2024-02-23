@@ -39,7 +39,6 @@ requirements:
     - libgomp      # [linux]
     - parallel-hashmap
     - cutlass                        # [cuda_compiler_version not in (undefined, 'None')]
-    - cuda-version =={{ cuda_compiler_version }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
