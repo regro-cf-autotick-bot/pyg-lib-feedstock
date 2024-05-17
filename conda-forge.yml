@@ -1,5 +1,8 @@
 azure:
-  free_disk_space: [docker, cache, apt]
+  free_disk_space:
+  - docker
+  - cache
+  - apt
   settings_linux:
     swapfile_size: 20GiB
 build_platform:
