@@ -17,6 +17,8 @@ source:
   git_rev: {{ version }}
   patches:
     - patches/0001-fix-cmake.patch
+    # due to https://github.com/conda-forge/pytorch-cpu-feedstock/issues/357
+    - patches/0002-look-harder-for-pytorch.patch
 
 build:
   number: 2

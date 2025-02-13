@@ -1,7 +1,7 @@
 From 20537c71ed640f355b15071f391ce46c903fc98a Mon Sep 17 00:00:00 2001
 From: Hadrien Mary <hadrien.mary@gmail.com>
 Date: Mon, 27 Nov 2023 19:27:12 -0500
-Subject: [PATCH] fix cmake
+Subject: [PATCH 1/2] fix cmake
 
 ---
  setup.py | 14 ++++++++++----
