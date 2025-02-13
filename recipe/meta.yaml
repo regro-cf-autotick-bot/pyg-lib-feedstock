@@ -71,6 +71,7 @@ requirements:
     - libcurand-dev
     - libcusolver-dev
     - libcusparse-dev
+    - nvtx-c
     {% endif %}
   run:
     - python
