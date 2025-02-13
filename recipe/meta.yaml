@@ -50,15 +50,14 @@ requirements:
     - cuda-cudart-dev
     # No cuda-driver-dev in windows
     - cuda-driver-dev  # [linux]
-    - libcufft-dev
-    - libcurand-dev
-    - libcublas-dev
     - cuda-nvrtc-dev
     - cuda-nvtx-dev
     - cuda-profiler-api
-    - cuda-nvrtc-dev
-    - libcusparse-dev
+    - libcublas-dev
+    - libcufft-dev
+    - libcurand-dev
     - libcusolver-dev
+    - libcusparse-dev
     {% endif %}
   run:
     - python
