@@ -12,12 +12,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/pyg-team/pyg-lib/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6a515815f69f925a0ba15e743ac071629e1fd1ae9c46576db8b7f91ab40a8eac
-  patches:
-    - patches/0001-fix-cmake.patch
-    # due to https://github.com/conda-forge/pytorch-cpu-feedstock/issues/357
-    - patches/0002-look-harder-for-pytorch.patch
+  - url: https://github.com/pyg-team/pyg-lib/archive/refs/tags/{{ version }}.tar.gz
+    sha256: 6a515815f69f925a0ba15e743ac071629e1fd1ae9c46576db8b7f91ab40a8eac
+    patches:
+      - patches/0001-fix-cmake.patch
+      # due to https://github.com/conda-forge/pytorch-cpu-feedstock/issues/357
+      - patches/0002-look-harder-for-pytorch.patch
+
+  - folder: third_party/cutlass
+    git_url: https://github.com/NVIDIA/cutlass.git
+    git_rev: 6f47420213f757831fae65c686aa471749fa8d60
+
+  - folder: third_party/METIS
+    git_url: https://github.com/KarypisLab/METIS.git
+    git_rev: 22008804e8c9b78893ae10a94c0d8b4b592438b4
+
+  - folder: third_party/parallel-hashmap
+    git_url: https://github.com/greg7mdp/parallel-hashmap.git
+    git_rev: 01ea8093e6d0293ea252e8027c17d7dff26a9c9f
 
 build:
   number: 2
