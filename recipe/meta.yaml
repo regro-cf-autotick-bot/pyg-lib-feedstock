@@ -16,7 +16,7 @@ source:
   git_url:  https://github.com/pyg-team/pyg-lib/
   git_rev: {{ version }}
   patches:
-    - fix-cmake.patch
+    - patches/0001-fix-cmake.patch
 
 build:
   number: 2
