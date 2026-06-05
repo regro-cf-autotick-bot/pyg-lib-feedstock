@@ -19,9 +19,17 @@ source:
       # due to https://github.com/conda-forge/pytorch-cpu-feedstock/issues/357
       - patches/0002-look-harder-for-pytorch.patch
 
+  - folder: third_party/cccl
+    git_url: https://github.com/NVIDIA/cccl.git
+    git_rev: d84981c797eb186e45f883f85423df94f9ac8bf4
+
+  - folder: third_party/cuCollections
+    git_url: https://github.com/NVIDIA/cuCollections.git
+    git_rev: 8333a0beb551bc1a46314840de3c28b855564ccb
+
   - folder: third_party/cutlass
     git_url: https://github.com/NVIDIA/cutlass.git
-    git_rev: 6f47420213f757831fae65c686aa471749fa8d60
+    git_rev: b78588d1630aa6643bf021613717bafb705df4ef
 
   - folder: third_party/METIS
     git_url: https://github.com/KarypisLab/METIS.git
@@ -29,7 +37,7 @@ source:
 
   - folder: third_party/parallel-hashmap
     git_url: https://github.com/greg7mdp/parallel-hashmap.git
-    git_rev: 01ea8093e6d0293ea252e8027c17d7dff26a9c9f
+    git_rev: 2ec799017610ef831f4dc29c21fb3cce7e4a19b9
 
 build:
   number: 0
