@@ -31,8 +31,8 @@ export LDFLAGS="${LDFLAGS//-Wl,-z,now/-Wl,-z,lazy}"
 
 # export USE_MKL_BLAS=1  # only used for >0.1.0
 export FORCE_NINJA=1
-export EXTERNAL_PHMAP_INCLUDE_DIR="${BUILD_PREFIX}/include/"
-export EXTERNAL_CUTLASS_INCLUDE_DIR="${BUILD_PREFIX}/include/"
+export EXTERNAL_PHMAP_INCLUDE_DIR="${PREFIX}/include/"
+export EXTERNAL_CUTLASS_INCLUDE_DIR="${PREFIX}/include/"
 
 # note that we patch PYG_CMAKE_ARGS into setup.py, in order to set Torch_DIR correctly also for cross-compilation
 export PYG_CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=${PREFIX} -DTorch_DIR=${PREFIX}/lib/python${PY_VER}/site-packages/torch/share/cmake/Torch"

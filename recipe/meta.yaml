@@ -27,20 +27,12 @@ source:
     git_url: https://github.com/NVIDIA/cuCollections.git
     git_rev: 8333a0beb551bc1a46314840de3c28b855564ccb
 
-  - folder: third_party/cutlass
-    git_url: https://github.com/NVIDIA/cutlass.git
-    git_rev: b78588d1630aa6643bf021613717bafb705df4ef
-
   - folder: third_party/METIS
     git_url: https://github.com/KarypisLab/METIS.git
     git_rev: 22008804e8c9b78893ae10a94c0d8b4b592438b4
 
-  - folder: third_party/parallel-hashmap
-    git_url: https://github.com/greg7mdp/parallel-hashmap.git
-    git_rev: 2ec799017610ef831f4dc29c21fb3cce7e4a19b9
-
 build:
-  number: 1
+  number: 2
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
 
@@ -54,16 +46,15 @@ requirements:
     - cross-python_{{ target_platform }}                 # [build_platform != target_platform]
     - cmake
     - ninja        # [unix]
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux]
-    - parallel-hashmap
-    - cutlass                        # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
     - setuptools
     - pytorch
     - pytorch * {{ torch_proc_type }}*
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
+    - parallel-hashmap
     {% if cuda_major >= 12 %}
     - cuda-version =={{ cuda_compiler_version }}
     - cuda-cudart-dev
@@ -72,6 +63,7 @@ requirements:
     - cuda-nvrtc-dev
     - cuda-nvtx-dev
     - cuda-profiler-api
+    - cutlass
     - libcublas-dev
     - libcufft-dev
     - libcurand-dev
