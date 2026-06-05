@@ -19,7 +19,8 @@ set Torch_DIR=%SP_DIR%\torch"
 @REM set USE_MKL_BLAS=1
 
 set FORCE_NINJA=1
-set "EXTERNAL_PHMAP_INCLUDE_DIR=%LIBRARY_INC%"
+:: unusually, parallel-hashmap is a noarch package, so the headers are elsewhere
+set "EXTERNAL_PHMAP_INCLUDE_DIR=%PREFIX%/include"
 set "EXTERNAL_CUTLASS_INCLUDE_DIR=%LIBRARY_INC%"
 
 pip install . -vvv
