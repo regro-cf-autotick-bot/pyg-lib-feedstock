@@ -23,4 +23,8 @@ set FORCE_NINJA=1
 set "EXTERNAL_PHMAP_INCLUDE_DIR=%PREFIX%/include"
 set "EXTERNAL_CUTLASS_INCLUDE_DIR=%LIBRARY_INC%"
 
+set "CFLAGS=/Zc:preprocessor"
+set "CXXFLAGS=/Zc:preprocessor"
+set "CUDAFLAGS=-Xcompiler=/Zc:preprocessor"
+
 pip install . -vvv
