@@ -1,32 +1,19 @@
-@REM NOTE(hadim): the below is WIP and does not work.
-@REM We must wait for upstream to provide Windows compatibility.
+@echo on
 
-@echo On
-
-if "%cuda_compiler_version%" == "None" (
-    set FORCE_CUDA=0
-) else (
+if "%cuda_compiler_version%" == "12.9" (
+    set TORCH_CUDA_ARCH_LIST=5.0;6.0;7.0;7.5;8.0;8.6;8.9;9.0;10.0;12.0+PTX
     set FORCE_CUDA=1
+) else if "%cuda_compiler_version%" == "13.0" (
+    set TORCH_CUDA_ARCH_LIST=7.5;8.0;8.6;8.9;9.0;10.0;12.0+PTX
+    set FORCE_CUDA=1
+) else (
+    set FORCE_CUDA=0
 )
-
-if "%build_with_cuda%" == "" goto cuda_flags_end
-
-set CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v%desired_cuda%
-set CUDA_BIN_PATH=%CUDA_PATH%\bin
-
-:cuda_flags_end
 
 set DISTUTILS_USE_SDK=1
 
 set CMAKE_INCLUDE_PATH=%LIBRARY_PREFIX%\include
 set LIB=%LIBRARY_PREFIX%\lib;%LIB%
-
-IF "%build_with_cuda%" == "" goto cuda_end
-
-set "PATH=%CUDA_BIN_PATH%;%PATH%"
-set CUDNN_INCLUDE_DIR=%LIBRARY_PREFIX%\include
-
-:cuda_end
 
 set Torch_DIR=%SP_DIR%\torch"
 @REM set USE_MKL_BLAS=1
