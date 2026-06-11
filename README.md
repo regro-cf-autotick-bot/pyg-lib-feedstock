@@ -340,5 +340,6 @@ Feedstock Maintainers
 =====================
 
 * [@RaulPPelaez](https://github.com/RaulPPelaez/)
+* [@h-vetinari](https://github.com/h-vetinari/)
 * [@rusty1s](https://github.com/rusty1s/)
 
