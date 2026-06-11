@@ -1,12 +1,6 @@
 {% set version = "0.6.0" %}
 {% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
-{% if cuda_compiler_version in (None, "None", True, False) %}
-{% set cuda_major = 0 %}
-{% else %}
-{% set cuda_major = environ.get("cuda_compiler_version", "11.8").split(".")[0] | int %}
-{% endif %}
-
 package:
   name: pyg-lib
   version: {{ version }}
@@ -27,49 +21,35 @@ source:
     git_url: https://github.com/NVIDIA/cuCollections.git
     git_rev: 8333a0beb551bc1a46314840de3c28b855564ccb
 
-  - folder: third_party/cutlass
-    git_url: https://github.com/NVIDIA/cutlass.git
-    git_rev: b78588d1630aa6643bf021613717bafb705df4ef
-
   - folder: third_party/METIS
     git_url: https://github.com/KarypisLab/METIS.git
     git_rev: 22008804e8c9b78893ae10a94c0d8b4b592438b4
 
-  - folder: third_party/parallel-hashmap
-    git_url: https://github.com/greg7mdp/parallel-hashmap.git
-    git_rev: 2ec799017610ef831f4dc29c21fb3cce7e4a19b9
-
 build:
-  number: 1
+  number: 2
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
-  # Only build for CUDA >=12.0; 11.8 dropped in conda-forge's pytorch
-  skip: true  # [win or cuda_compiler_version == "11.8"]
-  ignore_run_exports_from:
-    # see comment below
-    - libprotobuf
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}                             # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ compiler('cuda') }}                             # [cuda_compiler_version != "None"]
     - python                                             # [build_platform != target_platform]
     - cross-python_{{ target_platform }}                 # [build_platform != target_platform]
     - cmake
-    - ninja        # [unix]
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux]
-    - parallel-hashmap
-    - cutlass                        # [cuda_compiler_version not in (undefined, 'None')]
+    - ninja
   host:
     - python
     - pip
     - setuptools
     - pytorch
     - pytorch * {{ torch_proc_type }}*
-    {% if cuda_major >= 12 %}
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
+    - parallel-hashmap
+    {% if cuda_compiler_version != "None" %}
     - cuda-version =={{ cuda_compiler_version }}
     - cuda-cudart-dev
     # No cuda-driver-dev in windows
@@ -77,6 +57,7 @@ requirements:
     - cuda-nvrtc-dev
     - cuda-nvtx-dev
     - cuda-profiler-api
+    - cutlass
     - libcublas-dev
     - libcufft-dev
     - libcurand-dev
