@@ -28,7 +28,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -39,7 +39,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -50,7 +50,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -61,7 +61,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -72,7 +72,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -83,7 +83,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -94,7 +94,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -105,7 +105,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -116,7 +116,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -127,7 +127,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -138,7 +138,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -149,7 +149,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -160,7 +160,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -171,7 +171,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -182,7 +182,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-latest']
@@ -193,7 +193,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -204,7 +204,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -215,7 +215,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -226,7 +226,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -237,7 +237,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -248,7 +248,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -259,7 +259,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -270,7 +270,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -281,7 +281,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -292,7 +292,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -303,7 +303,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -314,7 +314,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -325,7 +325,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -336,7 +336,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -347,7 +347,7 @@ jobs:
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
             docker_run_args: 
-            free_disk_space: apt,cache,docker
+            free_disk_space: max
             os: ubuntu
             pagefile_size: 20
             runs_on: ['ubuntu-24.04-arm']
@@ -363,7 +363,7 @@ jobs:
         OS: ${{ matrix.os }}
       shell: bash
       run: |
-        .scripts/free_disk_space.sh ",${FREE_DISK_SPACE},"
+        .scripts/free_disk_space.sh "${FREE_DISK_SPACE}"
 
     - name: Build on Linux
       id: build-linux
