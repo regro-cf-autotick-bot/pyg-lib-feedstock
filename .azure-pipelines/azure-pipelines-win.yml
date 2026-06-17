@@ -14,6 +14,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version12.9python3.11.____cpython:
@@ -22,6 +23,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version12.9python3.12.____cpython:
@@ -30,6 +32,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version12.9python3.13.____cp313:
@@ -38,6 +41,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version12.9python3.14.____cp314:
@@ -46,6 +50,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version13.0python3.10.____cpython:
@@ -54,6 +59,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version13.0python3.11.____cpython:
@@ -62,6 +68,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version13.0python3.12.____cpython:
@@ -70,6 +77,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version13.0python3.13.____cp313:
@@ -78,6 +86,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_version13.0python3.14.____cp314:
@@ -86,6 +95,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_versionNonepython3.10.____cpython:
@@ -94,6 +104,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_versionNonepython3.11.____cpython:
@@ -102,6 +113,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_versionNonepython3.12.____cpython:
@@ -110,6 +122,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_versionNonepython3.13.____cp313:
@@ -118,6 +131,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
       win_64_cuda_compiler_versionNonepython3.14.____cp314:
@@ -126,6 +140,7 @@ jobs:
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
         pagefile_size: 0
+        resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
   timeoutInMinutes: 360
